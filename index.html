@@ -41,7 +41,7 @@
   "image": "https://advocateamansharma.com/og-image.jpg",
   "url": "https://advocateamansharma.com",
   "telephone": "+917009902072",
-  "email": "advamansharma10@gmail.com",
+  "email": "Advamansharma10@gmail.com",
   "description": "Expert legal services in Civil Law, Criminal Law, and Cyber Law across Rajpura, Kharar, Mohali and Patiala, Punjab.",
   "address": {
     "@type": "PostalAddress",
@@ -537,7 +537,7 @@
       <p>Reach out today for a confidential discussion about your legal matter. Available during office hours — or leave a message and we'll get back to you promptly.</p>
       <div class="contact-items">
         <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-item-content"><span>Phone</span><a href="tel:07009902072">070099 02072</a></div></div>
-        <div class="contact-item"><span class="contact-icon">✉️</span><div class="contact-item-content"><span>Email</span><a href="/cdn-cgi/l/email-protection#3d5c594b5c505c534e555c4f505c0c0d7d5a505c5451135e5250"><span class="__cf_email__" data-cfemail="553431233438343b263d342738346465153238343c397b363a38">[email&#160;protected]</span></a></div></div>
+        <div class="contact-item"><span class="contact-icon">✉️</span><div class="contact-item-content"><span>Email</span><a href="mailto:Advamansharma10@gmail.com">Advamansharma10@gmail.com</a></div></div>
         <div class="contact-item"><span class="contact-icon">🏢</span><div class="contact-item-content"><span>Office Address</span><p>NH 64, Jaslok Hospital Rd, near Krishna Bakery,<br>Old Rajapura, Rajpura, Punjab 140401</p></div></div>
         <div class="contact-item"><span class="contact-icon">🕐</span><div class="contact-item-content"><span>Office Hours</span><p>Open · Closes 5:00 PM · Reopens 6:00 PM</p></div></div>
       </div>
@@ -545,15 +545,18 @@
     <div class="contact-right">
       <div class="contact-form">
         <div class="form-row">
-          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="form-group"><label>Full Name</label><input type="text" id="cName" placeholder="Your name"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" id="cPhone" placeholder="+91 XXXXX XXXXX"></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="cEmail" placeholder="your@email.com"></div>
         <div class="form-group"><label>Type of Legal Matter</label>
-          <select><option value="" disabled selected>Select a category</option><option>Civil Law</option><option>Criminal Law</option><option>Cyber Law</option><option>Property Dispute</option><option>Family Law</option><option>Other</option></select>
+          <select id="cType"><option value="" disabled selected>Select a category</option><option>Civil Law</option><option>Criminal Law</option><option>Cyber Law</option><option>Property Dispute</option><option>Family Law</option><option>Other</option></select>
         </div>
-        <div class="form-group"><label>Briefly Describe Your Matter</label><textarea rows="5" placeholder="Please describe your legal issue in brief..."></textarea></div>
-        <button class="form-submit" onclick="alert('Thank you for reaching out!\nAdvocate Aman Sharma will contact you shortly.\n\nFor immediate assistance, call: 070099 02072')">Send Message →</button>
+        <div class="form-group"><label>Briefly Describe Your Matter</label><textarea id="cMsg" rows="5" placeholder="Please describe your legal issue in brief..."></textarea></div>
+        <button class="form-submit" onclick="sendContactForm()">Send Message →</button>
+        <div id="formSuccess" style="display:none;margin-top:1rem;padding:1rem;background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.3);color:#4CAF50;font-size:0.88rem;text-align:center;">
+          ✅ Message sent! Advocate Aman Sharma will contact you shortly.
+        </div>
       </div>
     </div>
   </div>
@@ -562,6 +565,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">⚖ Advocate Aman Sharma</div>
+  <div style="font-size:0.78rem;color:var(--muted)">✉️ <a href="mailto:Advamansharma10@gmail.com" style="color:var(--gold);text-decoration:none">Advamansharma10@gmail.com</a></div>
   <a class="google-review-btn" href="https://g.page/r/CRQi0CYw9VDxEBM/review" target="_blank" rel="noopener" style="padding:0.55rem 1.2rem;font-size:0.78rem;box-shadow:none;border:1px solid rgba(201,168,76,0.3);background:transparent;color:var(--gold);">
     ⭐ Review on Google
   </a>
@@ -862,6 +866,43 @@ function updateBadge() {
   const n = getReviews().filter(r=>!r.ok).length;
   const el = document.getElementById('pendingCount');
   el.textContent = n; el.style.display = n>0 ? 'inline' : 'none';
+}
+
+// ─── CONTACT FORM ──────────────────────────────
+function sendContactForm() {
+  const name  = document.getElementById('cName').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const type  = document.getElementById('cType').value;
+  const msg   = document.getElementById('cMsg').value.trim();
+  if (!name)  { alert('Please enter your name.'); return; }
+  if (!phone) { alert('Please enter your phone number.'); return; }
+  if (!msg)   { alert('Please describe your legal matter.'); return; }
+
+  // Send via FormSubmit (free email service)
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('phone', phone);
+  formData.append('email', email || 'Not provided');
+  formData.append('_subject', '📩 New Client Enquiry — ' + (type || 'General') + ' | ' + name);
+  formData.append('message', `Name: ${name}\nPhone: ${phone}\nEmail: ${email||'Not provided'}\nMatter Type: ${type||'Not selected'}\n\nMessage:\n${msg}`);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+
+  fetch('https://formsubmit.co/Advamansharma10@gmail.com', {
+    method: 'POST',
+    body: formData
+  }).then(() => {
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('cName').value = '';
+    document.getElementById('cPhone').value = '';
+    document.getElementById('cEmail').value = '';
+    document.getElementById('cMsg').value = '';
+  }).catch(() => {
+    // Fallback — open WhatsApp with the message
+    const waMsg = encodeURIComponent(`Hello Advocate Aman Sharma,\n\nName: ${name}\nPhone: ${phone}\nMatter: ${type||'General'}\n\n${msg}`);
+    window.open('https://wa.me/917009902072?text=' + waMsg, '_blank');
+  });
 }
 
 // ─── HELPERS ───────────────────────────────

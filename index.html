@@ -294,6 +294,26 @@
   .admin-empty { color:var(--muted); font-size:0.85rem; text-align:center; padding:2rem; border:1px dashed rgba(255,255,255,0.08); }
   .pending-badge { display:inline-block; background:rgba(201,168,76,0.15); color:var(--gold); font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:2px; margin-left:0.5rem; }
 
+  /* GOOGLE REVIEW BUTTON */
+  .google-review-btn {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: #fff; color: #3c4043;
+    padding: 0.85rem 1.8rem; border-radius: 4px;
+    text-decoration: none; font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    transition: all 0.3s; border: none; cursor: pointer;
+  }
+  .google-review-btn:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.5); transform: translateY(-2px); }
+  .google-review-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .review-cta-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2rem; text-align: center; margin-bottom: 1.5rem;
+  }
+  .review-cta-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.5rem; }
+  .review-cta-box p { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.6; }
+
   /* WHATSAPP BUTTON */
   .whatsapp-btn {
     position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
@@ -364,7 +384,7 @@
     <p class="hero-desc">Providing dedicated legal representation across Civil, Criminal, and Cyber law matters in Rajpura, Kharar, Mohali, and Patiala. Committed to justice, grounded in integrity.</p>
     <div class="hero-actions">
       <a href="tel:07009902072" class="btn-primary">📞 070099 02072</a>
-      <a href="#contact" class="btn-secondary">Free Consultation</a>
+      <a href="#reviews" class="btn-secondary">⭐ Leave a Review</a>
     </div>
   </div>
 </section>
@@ -464,8 +484,21 @@
 
     <!-- Write Review Form -->
     <div class="review-form-box">
+      <div class="review-cta-box">
+        <h4>⭐ Rate on Google</h4>
+        <p>Your Google review helps more people find trusted legal help and boosts our ranking on Google Maps.</p>
+        <a class="google-review-btn" href="https://g.page/r/CRQi0CYw9VDxEBM/review" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Write a Google Review
+        </a>
+      </div>
       <h3>Share Your Experience</h3>
-      <p>Your review helps others find trusted legal help. All reviews are verified before publishing.</p>
+      <p>Prefer to leave a review here? Fill in the form below — all reviews are verified before publishing.</p>
       <div id="reviewFormWrap">
         <div class="star-picker" id="starPicker">
           <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
@@ -529,6 +562,9 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">⚖ Advocate Aman Sharma</div>
+  <a class="google-review-btn" href="https://g.page/r/CRQi0CYw9VDxEBM/review" target="_blank" rel="noopener" style="padding:0.55rem 1.2rem;font-size:0.78rem;box-shadow:none;border:1px solid rgba(201,168,76,0.3);background:transparent;color:var(--gold);">
+    ⭐ Review on Google
+  </a>
   <div class="footer-copy">© 2025 Advocate Aman Sharma · All Rights Reserved</div>
   <button class="footer-admin-link" onclick="openAdmin()">Admin Login</button>
 </footer>

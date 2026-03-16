@@ -537,7 +537,7 @@
       <p>Reach out today for a confidential discussion about your legal matter. Available during office hours — or leave a message and we'll get back to you promptly.</p>
       <div class="contact-items">
         <div class="contact-item"><span class="contact-icon">📞</span><div class="contact-item-content"><span>Phone</span><a href="tel:07009902072">070099 02072</a></div></div>
-        <div class="contact-item"><span class="contact-icon">✉️</span><div class="contact-item-content"><span>Email</span><a href="mailto:Advamansharma10@gmail.com">Advamansharma10@gmail.com</a></div></div>
+        <div class="contact-item"><span class="contact-icon">✉️</span><div class="contact-item-content"><span>Email</span><a href="mailto:Advamansharma10@gmail.com">Advamansharma10&#64;gmail.com</a></div></div>
         <div class="contact-item"><span class="contact-icon">🏢</span><div class="contact-item-content"><span>Office Address</span><p>NH 64, Jaslok Hospital Rd, near Krishna Bakery,<br>Old Rajapura, Rajpura, Punjab 140401</p></div></div>
         <div class="contact-item"><span class="contact-icon">🕐</span><div class="contact-item-content"><span>Office Hours</span><p>Open · Closes 5:00 PM · Reopens 6:00 PM</p></div></div>
       </div>
@@ -565,7 +565,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">⚖ Advocate Aman Sharma</div>
-  <div style="font-size:0.78rem;color:var(--muted)">✉️ <a href="mailto:Advamansharma10@gmail.com" style="color:var(--gold);text-decoration:none">Advamansharma10@gmail.com</a></div>
+  <div style="font-size:0.78rem;color:var(--muted)">✉️ <a href="mailto:Advamansharma10@gmail.com" style="color:var(--gold);text-decoration:none">Advamansharma10&#64;gmail.com</a></div>
   <a class="google-review-btn" href="https://g.page/r/CRQi0CYw9VDxEBM/review" target="_blank" rel="noopener" style="padding:0.55rem 1.2rem;font-size:0.78rem;box-shadow:none;border:1px solid rgba(201,168,76,0.3);background:transparent;color:var(--gold);">
     ⭐ Review on Google
   </a>
@@ -650,7 +650,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── STORAGE ───────────────────────────────
 const PASS = 'aman@2025'; // ← Change this password!
 
@@ -900,11 +900,4 @@ function sendContactForm() {
     document.getElementById('cMsg').value = '';
   }).catch(() => {
     // Fallback — open WhatsApp with the message
-    const waMsg = encodeURIComponent(`Hello Advocate Aman Sharma,\n\nName: ${name}\nPhone: ${phone}\nMatter: ${type||'General'}\n\n${msg}`);
-    window.open('https://wa.me/917009902072?text=' + waMsg, '_blank');
-  });
-}
-
-// ─── HELPERS ───────────────────────────────
-function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function fmtDate(d) { return d.toLocaleDateStri
+    const waMsg = encodeURIComponent(`Hello Advocate Aman Sharma,\n\nName: ${name}\nPhone: ${phone}\nMatter: $
